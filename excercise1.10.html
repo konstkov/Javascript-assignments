@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+const number=parseInt(prompt("How many dices would you like to roll?"), 10)
+const targetSum=parseInt(prompt("What is your target sum of all the rolls?"), 10)
+  let successfulTrials = 0
+  for (let n=0; n < 100000; n++) {
+    let sum=0
+    for (let i = 0; i < number; i += 1) {
+      let dice = Math.floor(Math.random() * 6) + 1
+      sum += dice
+    }
+      if (sum === targetSum) {
+        successfulTrials ++
+      }
+  }
+let proportion = successfulTrials / 100000
+  console.log(`Probability to get sum ${targetSum} with ${number} dice is ${proportion * 100} %`)
+</script>
+</body>
+</html>

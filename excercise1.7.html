@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  const number=prompt("How many times would you like to roll the dice?")
+  let dice=Math.floor(Math.random() * 6) + 1;
+  let sum=0
+  for (let i = 0; i < number ; i += 1) {
+            sum += dice
+  }
+  console.log(`The sum equals to ${sum}`)
+</script>
+</body>
+</html>

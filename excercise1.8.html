@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="myList">
+       </ul>
+<script>   const start_year=parseInt(prompt('Please enter the start year'), 10)
+    const end_year=parseInt(prompt('Please enter the end year'), 10)
+    let list=[]
+    for (let i=start_year; i<=end_year; i++) {
+      if (i % 4 === 0) {
+        list.push(i)
+        console.log(i)
+    }
+        }
+        let ul = document.getElementById('myList');
+        ul.innerHTML = list.map(value => `<li>${value}</li>`).join('');
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
