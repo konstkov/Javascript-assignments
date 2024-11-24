@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ol id="myList"></ol>
+<script>
+  list=[]
+  for (let i=0;i<6;i++) {
+    const names = prompt(`Please enter 6 dogs names (${i+1} of 6)`)
+    list.push(names)
+  }
+  list.sort()
+  list.reverse()
+  console.log(list)
+  let ul = document.getElementById('myList');
+  ul.innerHTML = list.map(value => `<li>${value}</li>`).join('');
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ol id="myList"></ol>
+<script>
+  list=[]
+  const number=prompt("Please enter a number of participants: ")
+  for (let i=0;i<number;i++) {
+    const names = prompt(`Please enter participant's name (${i+1} of ${number})`)
+    list.push(names)
+  }
+  list.sort()
+  console.log(list)
+  let ol = document.getElementById('myList');
+  ol.innerHTML = list.map(value => `<li>${value}</li>`).join('');
+</script>
+</body>
+</html>

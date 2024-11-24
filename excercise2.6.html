@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="myList"></ul>
+<script>
+  let list=[]
+  let roll
+  let dice = () => {
+    roll=Math.floor((Math.random() * 6) + 1)
+  }
+    while (roll != 6) {
+    list.push(roll)
+    dice()
+    }
+    console.log(list)
+let ul=document.getElementById('myList')
+ul.innerHTML=list.map(value => `<li>${value}</li>`).join('')
+
+</script>
+</body>
+</html>

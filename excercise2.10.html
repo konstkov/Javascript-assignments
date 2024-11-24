@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let candidateData
+  let candidateList=[]
+const candidatesNumber=parseInt(prompt("Please enter the number of candidates: "), 10)
+ for (let i=0;i<candidatesNumber;i++) {
+   candidateData = {name: null, votes: 0}
+   candidateData.name = prompt(`Please enter candidate's name (${i + 1} of ${candidatesNumber})`)
+   candidateList.push(candidateData)
+ }
+
+ const votersNumber = prompt("Please enter the number of voters")
+   for (let n = 0; n < votersNumber; n++) {
+     let vote = prompt(`Voter n.${n + 1}, please enter the name of candidate you wish to vote for: `)
+     let candidate=candidateList.find(candidate => candidate.name===vote)
+     if (candidate) {
+       candidate.votes+=1
+     }
+   }
+   let winner=candidateList.find(winner => winner.votes)
+     if (winner.votes===Math.max(winner.votes)) {
+       console.log(`The winner is ${winner.name} with ${winner.votes} votes. Results: `)
+     }
+       console.log(candidateList)
+</script>
+</body>
+</html>

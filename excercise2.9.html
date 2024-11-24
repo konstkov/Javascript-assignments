@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  const list = [2, 7, 9, 584, 11, 76]
+let list_even=[]
+const even = (list) => {
+  for (i of list) {
+    if (i % 2 === 0) {
+      list_even.push(i)
+    }
+  }
+}
+even(list)
+  console.log(`This is what your original list looks like: ${list}`)
+  console.log(`And this is what your list would like if we left all the odd numbers out:${list_even}`)
+</script>
+</body>
+</html>
