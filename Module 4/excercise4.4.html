@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="my-form">
+    <input id="query" name="q" type="text">
+    <input type="submit" id="search" value="Search">
+</form>
+<script>
+  'use strict';
+  const main = document.createElement('div');
+  main.id = 'results';
+  let value_from_input = null;
+  document.getElementById('my-form').addEventListener('submit', (event) =>
+      event.preventDefault());
+
+  async function tvMaze() {
+    try {
+      const response = await fetch(`https://api.tvmaze.com/search/shows?q=${value_from_input}`);
+      const show = await response.json();
+      console.log(show);
+      for (let i = 0; i <= show.length; i++) {
+        const article = document.createElement('article');
+        article.id = 'article';
+        const h2 = document.createElement('h2');
+        h2.innerHTML = show[i].show.name;
+        const a = document.createElement('a');
+        a.innerHTML = show[i].show.url;
+        a.target = '_blank';
+        const img = document.createElement('img');
+        const div = document.createElement('div');
+        div.innerHTML = show[i].show.summary;
+        document.querySelector('body').appendChild(main);
+        main.appendChild(article);
+        article.appendChild(h2);
+        article.appendChild(div);
+        article.appendChild(img);
+        article.appendChild(a);
+        img.src = show[i].show.image ? show[i].show.image.medium : 'https://via.placeholder.com/210x295?text=Not%20Found';
+        img.alt = show[i].show.name;
+      }
+    } catch (error) {
+      console.log(`
+        }The error: ${error}`);
+    }
+  }
+
+  document.getElementById('search').addEventListener('click', () => {
+    value_from_input = document.getElementById('query').value;
+    main.innerHTML = '';
+    tvMaze();
+  });
+</script>
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="my-form">
+    <input id="query" name="q" type="text">
+    <input type="submit" id="search" value="Search">
+</form>
+<script defer>
+  'use strict';
+  let value_from_input = null;
+  const article = document.createElement('article');
+  document.querySelector('body').appendChild(article);
+  document.getElementById('my-form').addEventListener('submit', (event) =>
+      event.preventDefault());
+
+  async function chuck() {
+    try {
+      const response = await fetch(`https://api.chucknorris.io/jokes/search?query=${value_from_input}`);
+      const json = await response.json();
+      json.result.forEach(joke => {
+        const p = document.createElement('p');
+        p.innerHTML = joke.value;
+        article.appendChild(p);
+        console.log(joke.value);
+      });
+    } catch (error) {
+      console.error('This is the error message');
+    }
+  }
+
+  document.getElementById('search').addEventListener('click', () => {
+    value_from_input = document.getElementById('query').value;
+    article.innerHTML = '';
+    chuck();
+  });
+</script>
+</body>
+</html>
